@@ -51,10 +51,22 @@ void encrypt(string encrypt_this)
  set_encryptedtext(msg);
 }
 string decrypt()
-{
-
+{  string enmsg =encrypt();
+ for(int i=0; i<enmsg.length(), i++)
+ {
+   if(isalpha(enmsg[i]))
+   {
+     int offset= 65;
+     if (islower(enmsg[i]))
+        offest =97;
+     int decipheredchar =(((int)enmsg[i])+offset -key)%26) - offset; 
+     cout<<(char)decipheredchar;
+   }
+   else
+     cout <<message[i];
+ }
 }
 void query_for_message(string prompt)
 {
-
+  cout<<"Enter the message to encrypt"<<endl;
 }
