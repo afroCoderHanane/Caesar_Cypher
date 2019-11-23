@@ -15,7 +15,6 @@ class caesar_cipher
   void set_encryptedtext(string message);
   string get_encryptedtext();
   int getKey();
-  string encryptedtext();
   string encrypt();
   void encrypt(string encrypt_this);
   string decrypt();
