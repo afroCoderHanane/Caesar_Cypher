@@ -18,9 +18,11 @@ int caesar_cipher::getKey()
 {
  return key;
 }
+//read to understand more//
 void caesar_cipher::set_encryptedtext(string message)
 {
- 
+ for(int i=0; i<message.size(), i++)
+   if()
 }
 string caesar_cipher::get_encryptedtext()
 {
