@@ -68,5 +68,5 @@ string decrypt()
 }
 void query_for_message(string prompt)
 {
-  cout<<"Enter the message to encrypt"<<endl;
+  cout<<prompt<<endl;
 }
