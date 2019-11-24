@@ -13,15 +13,18 @@ caesar_cipher::caesar_cipher(string encrypt_this)
 }
 void caesar_cipher::setKey(int key_value)
 {
+  //•	set_key(int key_value). A mutator method that sets the new key value
 	key = key_value;
 }
 int caesar_cipher::getKey()
 {
+  //•	get_key(). An accessor method that returns the current key value
 	return key;
 }
 //read to understand more//
-void caesar_cipher::set_encryptedtext(string message)
-{
+void caesar_cipher::set_encryptedtext(string msg)
+{ // •	set_encryptedtext(string message. A mutator method that sets the encrypted text
+
 	// int n = message.length();
 	// for (int i = 0; i < n; i++)
 	// {
@@ -37,7 +40,7 @@ void caesar_cipher::set_encryptedtext(string message)
 	// 		cout << message[i];
 	// }
 
-  message =encrypt( encrypt_this);
+  msg =get_encryptedtext();
 }
 
 string caesar_cipher::get_encryptedtext()
@@ -49,7 +52,7 @@ string caesar_cipher::get_encryptedtext()
 string caesar_cipher::encrypt()
 {
 	//msg = encrypt(encrypt_this);
-		return get_encryptedtext();
+		return msg;
 }
 void caesar_cipher::encrypt(string encrypt_this)
 {
@@ -65,6 +68,7 @@ void caesar_cipher::encrypt(string encrypt_this)
 				offset = 97;
 			int cipheredchar = ((((int)encrypt_this[i]) - offset + key) % 26) + offset;
 			cout << (char)cipheredchar;
+      msg[i]= (char)cipheredchar;
 		}
 		else
 			cout << encrypt_this[i];
@@ -73,19 +77,21 @@ void caesar_cipher::encrypt(string encrypt_this)
 
 void caesar_cipher::decrypt()
 {
-	string enmsg = encrypt();
-	for (int i = 0; i < enmsg.length(); i++)
+	//string enmsg = encrypt();
+	for (int i = 0; i < msg.length(); i++)
 	{
-		if (isalpha(enmsg[i]))
+		if (isalpha(msg[i]))
 		{
 			int offset = 65;
-			if (islower(enmsg[i]))
+			if (islower(msg[i]))
 				offset = 97;
-			int decipheredchar = ((((int)enmsg[i]) + offset - key) % 26 ) - offset;
+			int decipheredchar = ((((int)msg[i]) + offset - key) % 26 ) - offset;
 			cout << (char)decipheredchar;
+      msg[i] =(char)decipheredchar;
 		}
 		else
-			cout << enmsg[i];
+			cout << msg[i];
+      
 	}
 }
 void caesar_cipher::query_for_message(string prompt)
