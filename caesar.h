@@ -17,7 +17,7 @@ class caesar_cipher
   int getKey();
   string encrypt();
   void encrypt(string encrypt_this);
-  string decrypt();
+  void decrypt();
   void query_for_message(string prompt);
 
 };

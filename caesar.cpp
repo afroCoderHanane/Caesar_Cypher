@@ -3,70 +3,92 @@
 
 caesar_cipher::caesar_cipher()
 {
- msg = "";
- key =0;
+	msg = "";
+	key = 0;
 }
 caesar_cipher::caesar_cipher(string encrypt_this)
 {
- msg = encrypt_this;
- //key = 0;
+	msg = encrypt_this;
+	//key = 0;
 }
 void caesar_cipher::setKey(int key_value)
 {
- key =keyvalue;
+	key = key_value;
 }
 int caesar_cipher::getKey()
 {
- return key;
+	return key;
 }
 //read to understand more//
 void caesar_cipher::set_encryptedtext(string message)
-{ 
-  
- for(int i=0; i<message.length(), i++)
- {
-   if(isalpha(message[i]))
-   {
-     int offset= 65;
-     if (islower(message[i]))
-        offest =97;
-     int cipheredchar =(((int)message[i])-offset +key)%26) + offset; 
-     cout<<(char)cipheredchar;
-   }
-   else
-     cout <<message[i];
- }
-}
-string caesar_cipher::get_encryptedtext()
 {
- return message;
+	// int n = message.length();
+	// for (int i = 0; i < n; i++)
+	// {
+	// 	if (isalpha(message[i]))
+	// 	{
+	// 		int offset = 65;
+	// 		if (islower(message[i]))
+	// 			offset = 97;
+	// 		int cipheredchar = ((((int)message[i]) - offset + key) % 26) + offset;
+	// 		cout << (char)cipheredchar;
+	// 	}
+	// 	else
+	// 		cout << message[i];
+	// }
+
+  message =encrypt( encrypt_this);
 }
 
-string encrypt()
-{ 
-  return msg;
-}
-void encrypt(string encrypt_this)
-{ msg =encrypt_this;
- set_encryptedtext(msg);
-}
-string decrypt()
-{  string enmsg =encrypt();
- for(int i=0; i<enmsg.length(), i++)
- {
-   if(isalpha(enmsg[i]))
-   {
-     int offset= 65;
-     if (islower(enmsg[i]))
-        offest =97;
-     int decipheredchar =(((int)enmsg[i])+offset -key)%26) - offset; 
-     cout<<(char)decipheredchar;
-   }
-   else
-     cout <<message[i];
- }
-}
-void query_for_message(string prompt)
+string caesar_cipher::get_encryptedtext()
 {
-  cout<<prompt<<endl;
+	
+	return msg;
+}
+
+string caesar_cipher::encrypt()
+{
+	//msg = encrypt(encrypt_this);
+		return get_encryptedtext();
+}
+void caesar_cipher::encrypt(string encrypt_this)
+{
+	//set_encryptedtext(encrypt_this);
+  //function that encrypt
+  int n = encrypt_this.length();
+	for (int i = 0; i < n; i++)
+	{
+		if (isalpha(encrypt_this[i]))
+		{
+			int offset = 65;
+			if (islower(encrypt_this[i]))
+				offset = 97;
+			int cipheredchar = ((((int)encrypt_this[i]) - offset + key) % 26) + offset;
+			cout << (char)cipheredchar;
+		}
+		else
+			cout << encrypt_this[i];
+	}
+}
+
+void caesar_cipher::decrypt()
+{
+	string enmsg = encrypt();
+	for (int i = 0; i < enmsg.length(); i++)
+	{
+		if (isalpha(enmsg[i]))
+		{
+			int offset = 65;
+			if (islower(enmsg[i]))
+				offset = 97;
+			int decipheredchar = ((((int)enmsg[i]) + offset - key) % 26 ) - offset;
+			cout << (char)decipheredchar;
+		}
+		else
+			cout << enmsg[i];
+	}
+}
+void caesar_cipher::query_for_message(string prompt)
+{
+	cout << prompt << endl;
 }
