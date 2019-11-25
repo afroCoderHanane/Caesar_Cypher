@@ -78,6 +78,8 @@ void caesar_cipher::encrypt(string encrypt_this)
 void caesar_cipher::decrypt()
 {
 	//string enmsg = encrypt();
+  cout<< endl;
+  cout<< get_encryptedtext()<< endl;
 	for (int i = 0; i < msg.length(); i++)
 	{
 		if (isalpha(msg[i]))
@@ -85,9 +87,11 @@ void caesar_cipher::decrypt()
 			int offset = 65;
 			if (islower(msg[i]))
 				offset = 97;
-			int decipheredchar = ((((int)msg[i]) + offset - key) % 26 ) - offset;
-			cout << (char)decipheredchar;
+			int decipheredchar = ((((int)msg[i]) + offset - key) % 26 ) + offset;
       msg[i] =(char)decipheredchar;
+      //cout<< " I passed by";
+			cout <<(char)decipheredchar;
+     
 		}
 		else
 			cout << msg[i];
@@ -97,4 +101,5 @@ void caesar_cipher::decrypt()
 void caesar_cipher::query_for_message(string prompt)
 {
 	cout << prompt << endl;
+  //return prompt;
 }
