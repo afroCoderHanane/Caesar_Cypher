@@ -6,18 +6,16 @@
 using namespace std;
 
 int main()
-{
-	string h1 = "I am out of here come on";
+{   
+	string h1; 
 	caesar_cipher test;
+	h1 = test.query_for_message(h1);
 	test.set_encryptedtext(h1);
-	cout << test.get_encryptedtext() << endl;
+	cout << "Text entered" << endl<< test.get_encryptedtext() << endl;
 	test.setKey(1);
 	cout << "key = " << test.getKey() << endl;
-	test.encrypt(h1);
-	cout << endl;
-	cout << "Encrypted text: " << endl;
-	cout << test.encrypt() << endl;
-	cout << "The decrypted text is : "<<endl;
-	test.decrypt();
+	test.encrypt(h1);cout << endl;
+	cout << "Encrypted text: " <<endl<< test.encrypt() << endl;
+	cout << "The decrypted text is : "<<endl;test.decrypt();
 }
 

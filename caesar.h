@@ -1,4 +1,5 @@
 #pragma once
+//created by hananeDev84 on 11/26/19
 #include<iostream>
 #include<string>
 using namespace std;
@@ -19,6 +20,6 @@ public:
 	string encrypt();
 	void encrypt(string encrypt_this);
 	void decrypt();
-	//void query_for_message(string prompt);
+	string query_for_message(string prompt);
 
 };
